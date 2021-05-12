@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="Crudapp.css" rel="stylesheet">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="addnavbar.js"></script>
+
+    <script type="text/javascript" src="itemspage.js"></script>
+    <title>Items</title>
+</head>
+
+<body>
+    <!-- spinner -->
+    <div class="spinner"></div>
+
+
+
+    <div class="background">
+        <h2 class="text-center bg-light">All Items</h2>
+        <div class="container-fluid">
+            <a id="addnew" href="#"> <i class="fa fa-plus-circle fa-2x"> Add</i> </a>
+            <table class="sqltable table table-bordered table-dark table-striped">
+                <thead class="text-center">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Barcode</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Signature Item</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody class="text-center" id="itembody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="popup popup-sm" id="addmodal">
+        <div class="container center">
+            <h3 class="text-center">Insert New Item</h3>
+            <a class="closemodal" href="#"><i class="fa fa-times"></i></a>
+            <form id="addform" , class="form-horizontal">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="col col-form-label" , for="name">Item Name</label>
+                        <div class="col">
+                            <input type="text" , class="form-control" , name="name" , placeholder="Spaghetti">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col col-form-label" , for="Barcode">Barcode</label>
+                        <div class="col">
+                            <input type="number" , class="form-control " , name="Barcode" , placeholder="88837454">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="col col-form-label" , for="category_id">Category</label>
+                        <div class="col">
+                            <select class="forcategories custom-select" , name="category_id">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col col-form-label" , for="signature_item">Signature Item</label>
+                        <div class="col">
+                            <select id="category_select" class="custom-select " , name="signature_item">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col col-form-label" , for="current_price">Current Price</label>
+                        <div class="col">
+                            <input type="number" , class="form-control" , name="current_price" , placeholder="23.56">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-offset-2 col">
+                    <input type="submit" , class="btn btn-orange" id="create">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup" id="view-modal">
+        <a class="closemodal" href="#"><i class="fa fa-times"></i></a>
+        <div class="sidenav">
+            <p id="sidenav-selected">Store 5</p>
+            <a href="#" class="" aria-controls="edit">Change Values</a>
+            <a href="#" class="active" aria-controls="history">history</a>
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+            </svg>
+        </div>
+        <div class="modal-body" id="edit">
+            <div class="container">
+                <h3>Change Item Values</h3>
+                <form id='editform-2' , class="form-horizontal">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="col-sm-5 col-form-label" , for="name">Name</label>
+                            <div class="col-sm-12">
+                                <input type="text" , class="form-control " , name="name" , placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 col-form-label" , for="barcode">Barcode</label>
+                            <div class="col-sm-12">
+                                <input type="number" , class="form-control " , name="barcode" , placeholder="5321444">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 col-form-label" , for="category_id">Category</label>
+                            <div class="col-sm-12">
+                                <select id="editcat" class="forcategories custom-select mr-sm-2" , name="category_id">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 col-form-label" , for="signature_item">Signature Item</label>
+                            <div class="col-sm-12">
+                                <select class="custom-select mr-sm-2" , name="signature_item">
+
+                                    <option value="1">yes</option>
+                                    <option value="0">no</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 col-form-label" , for="current_price">Price</label>
+                            <div class="col-sm-10">
+                                <input type="number" , class="form-control " , name="current_price" ,
+                                    placeholder="23.12">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-sm-10 col-sm-offset-5">
+                            <input type="submit" , class="sumbit btn btn-orange btn-sm" id="1">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="modal-body active" id="history">
+            <div class="container">
+                <h2 class="text-center">Price History</h2>
+                <table class="sqltable table table-bordered table-dark table-striped">
+                    <thead class="text-center">
+                        <tr>
+                            <th scope="col">Date Of Change</th>
+                            <th scope="col">Old Price</th>
+                            <th scope="col">New Price Item</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" id="historybody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

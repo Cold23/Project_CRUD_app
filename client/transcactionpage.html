@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="Crudapp.css" rel="stylesheet">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="addnavbar.js"></script>
+
+    <script type="text/javascript" src="transcactionpage.js"></script>
+    <title>Transcactions</title>
+</head>
+
+<body>
+
+
+    <div class=" background">
+        <div class="spinner"></div>
+
+        <h2 class="text-center bg-light">All Transcactions</h2>
+        <div class="container-fluid">
+
+            <table class="sqltable table table-bordered table-hover table-dark table-striped">
+                <thead class="text-center">
+                    <tr id="filter_table">
+                        <form id="filterform">
+                            <th scope="col" class='id'>Transcaction ID
+
+                            </th>
+
+                            <th scope="col" class="payment_method">Payment Method
+
+                                <input type="text" name="payment_method" class="form-minimal payment_method"
+                                    placeholder="cash/credit/debit">
+                                <label for="payment_method" class="validation-label">Field Invalid</label></th>
+                            </th>
+                            <th scope="col" class="card_id">Customer Card ID
+
+                            </th>
+                            <th scope="col" class="date">Date of transcaction
+                                <input type="text" name="date" class="form-minimal date" placeholder="YYYY-MM-DD">
+                                <label for="date" class="validation-label">Field Invalid</label>
+                            </th>
+                            <th scope="col" class="store_id">Store ID
+                                <input type="text" name="store_id" class="form-minimal store_id" placeholder="57">
+                                <label for="store_id" class="validation-label">Field Invalid</label>
+                            </th>
+                            <th scope="col" class="total_price">Total Price
+                                <input type="text" name="total_price" class="form-minimal total_price"
+                                    placeholder=">/< number">
+                                <label for="total_price" class="validation-label">Field Invalid</label>
+                            </th>
+                            <th scope="col" class="total_pieces">Total Pieces Bought
+                                <input type="text" name="total_pieces" class="form-minimal total_pieces"
+                                    placeholder=">/< number">
+                                <label for="total_pieces" class="validation-label">Field Invalid</label>
+                            </th>
+                            <th scope="col" class="align-center">
+                                <button class="btn btn-outline-primary btn-sm" id="filter" title="Filter Results"><i
+                                        class="fa fa-filter"></i>
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm mt-1 " id="clear" title="Show all"><i
+                                        class="fa fa-refresh"></i>
+                                </button>
+                            </th>
+                        </form>
+                    </tr>
+                </thead>
+                <tbody class="text-center" id="transcactionbody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="popup">
+        <div id="item-view" class="container hidden" style="margin-bottom: 5%;">
+            <h2 class="text-center">Price History</h2>
+            <table id="sqltable" , class="table table-bordered table-dark table-striped">
+                <thead class="text-center">
+                    <tr>
+                        <th scope="col">Date Of Change</th>
+                        <th scope="col">Old Price</th>
+                        <th scope="col">New Price Item</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center" id="historybody">
+
+                </tbody>
+            </table>
+        </div>
+        <h2 class="text-center">Items Bought</h2>
+        <div class="container">
+            <a class="closemodal" href="#"><i class="fa fa-times"></i></a>
+            <table class="sqltable table table-bordered table-dark table-striped">
+                <thead class="text-center">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Barcode</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Signature Item</th>
+                        <th scope="col">Current Price</th>
+                        <th scope="col">Amount Bought</th>
+                        <th scope="col">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody class="text-center" id="itembody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

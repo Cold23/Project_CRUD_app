@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+.spinner {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    height:100px;
+    width:100px;
+    -webkit-animation: rotation .6s infinite ease-in-out;
+    -moz-animation: rotation .6s infinite ease-in-out;
+    -o-animation: rotation .6s infinite ease-in-out;
+    animation: rotation .6s infinite ease-in-out;
+    border-left:6px solid rgba(255, 100, 0, 1);
+    border-right:6px solid rgba(255, 100, 0, 0.1);
+    border-bottom:6px solid rgba(255, 100, 0, .1);
+    border-top:6px solid rgba(255, 100, 0, 1);
+    border-radius:50%;
+    z-index: 1;
+ }
+ 
+ @-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(359deg);}
+ }
+ @-moz-keyframes rotation {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(359deg);}
+ }
+ @-o-keyframes rotation {
+    from {-o-transform: rotate(0deg);}
+    to {-o-transform: rotate(359deg);}
+ }
+ @keyframes rotation {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(359deg);}
+ }
+
+ .background{
+    transition: 0.5s;
+ }
+ .background.blurred{
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    pointer-events: none;
+    user-select: none;
+ }
+ .container-fluid{
+    position: absolute;
+ }
+
+ .hidden{
+    display: none;
+ }
+
+ .modal-body{
+    position: absolute;
+    visibility: hidden;
+    margin-left: 150px;
+    width: calc(100% - 176px);
+    height: 98%;
+    overflow: auto;
+    opacity: 0;
+    transition: all 0.5s ease;  
+ }
+
+
+ .modal-body.active{
+    position: absolute;
+    visibility: visible;
+    opacity: 100;
+ }
+
+ th{
+   position: relative;
+ }
+
+ div.popup{
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90vw;
+    height: 80vh;
+    padding: 10px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.30);
+    background-color: #ffffff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    pointer-events: none;
+ }
+ div.popup-sm{
+   width: 70vw;
+   height: 56vh;
+}
+
+div.center{
+   width: 60%;
+   padding: 5px;
+   margin: 0 auto;
+}
+
+
+ div.popup.active{
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+ }
+
+ a.closemodal{
+    position: fixed;
+    top: -10px;
+    right: -10px;
+    padding: 5px 10px;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background: #d10808;
+    transition: 0.3s;
+    z-index: 1;
+    border-radius: 100%;
+    transition: 0.2s ease;
+ }
+
+ a.closemodal:hover{
+    filter: brightness(110%);
+    background: #e00707;
+    
+ }
+
+ #addnew{
+   position: absolute;
+   top: -48px;
+   right:1vw;
+   text-align: center;
+   color: black;
+   background: orange;
+   text-align: center;
+   padding: 5px;
+   z-index: 1;
+   border-radius: 5px;
+ }
+
+ #viewstats{
+  position: absolute;
+  top: -48px;
+  left:1vw;
+  text-align: center;
+  color: black;
+  background: orange;
+  text-align: center;
+  padding: 5px;
+  z-index: 1;
+  border-radius: 5px;
+ }
+
+
+ a.nav-link{
+   color: #919191 !important;
+   transition: 0.1s ease !important;
+ }
+
+ a.nav-link:focus,a.nav-link:visited{
+   color: #919191 !important;
+   text-decoration: none !important;
+  
+ }
+
+ a.nav-link:hover{
+   color: #fff !important;
+ }
+
+ 
+ 
+ #addnew i,#viewstats i{
+   transition: all 0.2s ease;
+   transform: scale(1);
+ }
+
+ #addnew i:hover,#viewstats i:hover{
+   transform: scale(1.05);
+ }
+
+ .sidenav {
+   height: 100%; 
+   width: 175px;
+   position: fixed;
+   z-index: 1;
+   top: 0; 
+   left: 0;
+   border-right: 2px solid orange;
+   background-color: #111; 
+   padding-top: 20px;
+   transition: 0.5s ease-in;
+   overflow: hidden;
+ }
+
+ .sidenav.closed{
+    width: 32px;
+ }
+ 
+ /* The navigation menu links */
+ .sidenav a {
+   padding: 6px 8px 6px 16px;
+   text-decoration: none;
+   font-size: 20px;
+   color: orange;
+   display: block;
+   transition: 0.5s ease-in-out;
+   float: left;
+   white-space: nowrap;
+ }
+
+.sidenav svg{
+   margin-top: 100px;
+}
+
+ .sidenav.closed a {
+    visibility: hidden;
+    opacity: 0;
+ }
+ 
+
+ .sidenav a:hover {
+   color: rgba(255, 100, 0, 1);
+ }
+
+ .sidenav a.active {
+   color: rgba(255, 100, 0, 1);
+ }
+
+ .sidenav p{
+   padding: 6px 8px 16px 16px;
+   color: rgba(255, 100, 0, 1);
+   font-size: 25px;
+   font-weight: bold;
+
+ }
+
+
+ .btn-orange{
+    background-color: orange;
+    color: black;
+    transition: 0.4s ease !important;
+    transform: scale(1);
+    border: none !important;
+    border-bottom: none !important;
+ }
+
+ .btn-orange:hover{
+   transform: scale(1.1);
+   border-bottom :none !important;
+}
+
+.checkmark__circle {
+   stroke-dasharray: 216;
+   stroke-dashoffset: 216;
+   stroke-width: 2;
+   stroke-miterlimit: 10;
+   stroke: orange;
+   fill: none;
+   animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+ }
+ 
+ .checkmark {
+   width: 106px;
+   height: 106px;
+   border-radius: 50%;
+   stroke-width: 2;
+   position: absolute;
+   bottom: 34px;
+   left: 34px;
+   stroke: #111;
+   stroke-miterlimit: 10;
+   margin: 10% auto;
+   box-shadow: inset 0px 0px 0px orange;
+   animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+ }
+ 
+ .checkmark__check {
+   transform-origin: 50% 50%;
+   stroke-dasharray: 98;
+   stroke-dashoffset: 98;
+   animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+ }
+ 
+ @keyframes stroke {
+   100% {
+     stroke-dashoffset: 0;
+   }
+ }
+ @keyframes scale {
+   0%, 100% {
+     transform: none;
+   }
+   50% {
+     transform: scale3d(1.1, 1.1, 1);
+   }
+ }
+ @keyframes fill {
+   100% {
+     box-shadow: inset 0px 0px 0px 80px orange;
+   }
+ }
+
+ div.landing{
+   display: flex;
+   flex-direction: column;
+   padding: 0px;
+
+   position: absolute;
+   
+   left: 134px;
+   top: 5em;
+
+ }
+
+ h1.landing{
+   border-bottom: 1px solid grey;
+
+   left: 0px;
+   top: 0px;
+
+
+   font-style: normal;
+   font-weight: normal;
+   font-size: 64px;
+   text-align: center;
+
+   color: #000000;
+
+   order: 0;
+   align-self: flex-start;
+   margin: 0px 30px;
+   line-height: 150px;
+ }
+
+
+ .memes{
+  width: 1072px;
+  height: 84px;
+  left: 0px;
+  top: 144px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 28px;
+
+  color: #000000;
+
+  order: 0;
+  align-self: center;
+  margin: 5px 30px;
+ }
+
+ p.landing{
+
+   width: 1072px;
+   height: 84px;
+   left: 0px;
+   top: 144px;
+
+
+   font-style: normal;
+   font-weight: normal;
+   font-size: 24px;
+   line-height: 28px;
+
+   color: #000000;
+
+   order: 1;
+   align-self: center;
+   margin: 5px 30px;
+ }
+
+ #info{
+   text-align: center;
+   font-size: large;
+   transition: 1s ease;
+ }
+ p#info{
+   text-align: center;
+ }
+
+
+ input, select{
+   color: black !important;
+   font-weight: 400 !important;
+   outline: none !important;
+   border:  none !important;
+   border-bottom: 1px solid grey !important;
+   transition: 0.1s linear, background-color 0.5s ease !important;
+ }
+
+ input:focus,select:focus{
+   box-shadow: inherit !important;
+   border-bottom: 3px solid gray !important;
+ }
+
+ select:hover{
+  border-bottom: 3px solid gray !important;
+  cursor: pointer;
+ }
+
+ input:hover{
+  cursor: text;
+  border-bottom: 3px solid gray !important;
+}
+
+
+ .form-minimal{
+   border-radius: 5px;
+ }
+
+
+ ::placeholder{
+   color: rgba(0, 0, 0, 0.5) !important;
+   font-weight: 300 !important;
+ }
+
+ i.inner{
+   color: rgba(255, 100, 0, 1);
+ }
+
+ #info:hover{
+
+  cursor: default;
+
+ }
+
+label.validation-label{
+  color: red;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto;
+  top: 5%;
+  transform: translateY(-10px) scale(0.9);
+  font-size:16px;
+  
+}
+
+  label.validation-label.invalid{
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0px) scale(1);
+  }
+
