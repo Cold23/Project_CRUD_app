@@ -14,6 +14,6 @@
 - download install node package manager(npm) from [here](https://nodejs.org/en/download/)
 - open a terminal/command prompt
 - cd to the directory with the files from this repository
-- run `npm install` and wait for the modules to be install
+- run `npm install` and wait for the modules to be installed
 - run `node app.js` 
 - open localhost:3000 on a web browser.
